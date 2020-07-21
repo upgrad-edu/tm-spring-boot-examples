@@ -1,3 +1,4 @@
+import com.upgrad.mtb.beans.Customer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -19,5 +20,7 @@ public class MainClass {
         Add @Entity, @Id , @GeneratedValue annotation on above listed entity classes
         executed code
         */
+
+
     }
 }
