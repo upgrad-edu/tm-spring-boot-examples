@@ -5,15 +5,68 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-<context:component-scan base-package="com.upgrad.project"/>
-	<bean id="propertyConfigurerService"
-		  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+
+	<!--setter injection-->
+	<!--<bean id="timeService" class="com.upgrad.project.services.TimeServiceImpl"/>
+
+	<bean id="greetingService" class="com.upgrad.project.services.GreetingServiceImpl1">
+		<property name="companyName" value="facebook"/>
+		<property name="timeService" ref="timeService"/>
+	</bean>-->
+
+	<!--constructor  injection-->
+	<!--<bean id="timeService" class="com.upgrad.project.services.TimeServiceImpl"/>
+
+	<bean id="greetingService" class="com.upgrad.project.services.GreetingServiceImpl1">
+		<constructor-arg name="companyName" value="facebook"/>
+		<constructor-arg name="timeService" ref="timeService"/>
+	</bean>-->
+
+
+
+	<!--<context:annotation-config/>
+	<bean id="timeService" class="com.upgrad.project.services.TimeServiceImpl"/>
+
+	<bean id="greetingService" class="com.upgrad.project.services.GreetingServiceImpl1">
+		<property name="companyName" value="facebook"/>   &lt;!&ndash;setter injection using xml&ndash;&gt;
+	</bean>-->
+
+	<!--<context:annotation-config/>
+	<bean id="timeService" class="com.upgrad.project.services.TimeServiceImpl"/>
+
+	<bean id="greetingService" class="com.upgrad.project.services.GreetingServiceImpl1">
+		<constructor-arg name="companyName" value="facebook"/>
+	</bean>-->
+
+
+	<!--<context:annotation-config/>
+	<bean id="timeService1" class="com.upgrad.project.services.TimeServiceImpl"/>
+	<bean id="timeService2" class="com.upgrad.project.services.TimeServiceImpl"/>
+
+	<bean id="greetingService" class="com.upgrad.project.services.GreetingServiceImpl1">
+	</bean>-->
+
+	<context:component-scan base-package="com.upgrad.project"/>
+
+	<bean id="propertyConfigurerService" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
-			<list>
-				<value>classpath:projectBeans.properties</value>
-			</list>
+				<list>
+					<value>classpath:projectBeans.properties</value>
+				</list>
 		</property>
 	</bean>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

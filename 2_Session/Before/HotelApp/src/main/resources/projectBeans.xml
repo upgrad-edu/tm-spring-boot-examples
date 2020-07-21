@@ -11,7 +11,8 @@
 	</bean>
 
 	<bean id="hotelService" class="com.upgrad.project.services.HotelServiceImpl">
-
+		<property name="hotelName" value="Keys"/>
+		<property name="kitchenService" ref="kitchenService"/>
 	</bean>-->
 
 	<!--============================================================================-->
@@ -21,6 +22,8 @@
 	</bean>
 
 	<bean id="hotelService" class="com.upgrad.project.services.HotelServiceImpl">
+		<constructor-arg name="hotelName" value="Keys"/>
+		<constructor-arg name="kitchenService" ref="kitchenService"/>
 	</bean>-->
 
 	<!--============================================================================-->
@@ -38,6 +41,7 @@
 		1)remove hotelService,kitchenService  bean definition from xml file
 		2)add @Component annotation on top of KitchenServiceImpl,HotelServiceImpl;
 	-->
+	<context:component-scan base-package="com.upgrad.project"/>
 
 	<!--============================================================================-->
 
@@ -47,5 +51,12 @@
 		2) add PropertyPlaceholderConfigurer configuration
 		2) configure porjectBeans.properties file path in PropertyPlaceholderConfigurer config
 	-->
+	<bean id="propertyConfigurerService" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:projectBeans.properties</value>
+			</list>
+		</property>
+	</bean>
 
 </beans>
