@@ -23,7 +23,14 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="78c55684-7860-43df-8d3c-aaea937e2419">
+        <schema name="HR" object-types="view, type, dblink, table, dimension, procedure, cluster, function, synonym, package, materialized view, sequence, database trigger" />
+        <schema name="PUBLIC" object-types="type, function, synonym, package, sequence" />
+        <schema name="SYS" object-types="type" />
+        <schema name="SYSTEM" object-types="view, type, dblink, table, column, dimension, procedure, cluster, function, index, synonym, package, materialized view, constraint, sequence, database trigger, dataset trigger, nested table" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="78c55684-7860-43df-8d3c-aaea937e2419">
@@ -37,7 +44,14 @@
     <connection id="78c55684-7860-43df-8d3c-aaea937e2419" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="78c55684-7860-43df-8d3c-aaea937e2419" dataset="SYSTEM.MOVIE" active-filter-id="EMPTY_FILTER">
+      <filter id="7a676b66-3c6a-4a10-88fc-bae54426ab05" name="1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="ID" operator="=" value="1" active="true" />
+      </filter>
+    </filter-actions>
     <filter-actions connection-id="78c55684-7860-43df-8d3c-aaea937e2419" dataset="SYSTEM.CITY" active-filter-id="" />
+    <filter-actions connection-id="78c55684-7860-43df-8d3c-aaea937e2419" dataset="SYSTEM.BOOKING" active-filter-id="" />
+    <filter-actions connection-id="78c55684-7860-43df-8d3c-aaea937e2419" dataset="SYSTEM.CUSTOMER" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />

@@ -6,6 +6,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
 @Repository("customerDAO")
-public interface CustomerDAO extends JpaRepository<Customer, Integer> {
+public interface CustomerDAO extends  JpaRepository<Customer,Integer>{
 
 }

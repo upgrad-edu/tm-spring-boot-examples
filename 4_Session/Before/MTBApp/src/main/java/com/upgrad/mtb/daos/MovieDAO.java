@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 public interface MovieDAO  {
-    /*Movie saveMovie(Movie movie);
+    Movie saveMovie(Movie movie);
     Movie updateMovie(Movie movie);
     Movie deleteMovie(Movie movie);
-    Optional<Movie> getMovie(int id);
-    List<Movie> getAllMovies();*/
+    Optional<Movie> getMovie(int id);     // JDK 1.8
+    List<Movie> getAllMovies();
 }
