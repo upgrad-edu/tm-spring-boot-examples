@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="78c55684-7860-43df-8d3c-aaea937e2419">
-        <schema name="SYSTEM" object-types="table, materialized view, synonym, view" />
+        <schema name="SYSTEM" object-types="synonym, table, materialized view, view" />
       </connection>
     </loaded-nodes>
   </component>

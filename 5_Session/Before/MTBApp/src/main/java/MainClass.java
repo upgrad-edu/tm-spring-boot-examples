@@ -68,84 +68,22 @@ public class MainClass {
         //  Movie+Language+Status
         //  Dhoom Madari movie TODO Trainer
 
-        englishLanguage = languageDAO.findById(englishLanguage.getId()).get();
-        releasedStatus = statusDAO.findById(releasedStatus.getId()).get();
 
-        dhoomMovie = movieDAO.findById(dhoomMovie.getId()).get();
-        dhoomMovie.setLanguage(englishLanguage);
-        dhoomMovie.setStatus(releasedStatus);
-        movieDAO.save(dhoomMovie);
-
-        madariMovie=movieDAO.findById(madariMovie.getId()).get();
-        madariMovie.setLanguage(englishLanguage);
-        madariMovie.setStatus(releasedStatus);
-        movieDAO.save(madariMovie);
 
         //uriMovie, sholeMovie movie TODO Student
         // 1)use hindiLanguage
         // 2)use notReleasedStatus
 
-        hindiLanguage = languageDAO.findById(hindiLanguage.getId()).get();
-        notReleasedStatus = statusDAO.findById(notReleasedStatus.getId()).get();
-
-        uriMovie = movieDAO.findById(uriMovie.getId()).get();
-        uriMovie.setStatus(notReleasedStatus);
-        uriMovie.setLanguage(hindiLanguage);
-        movieDAO.save(uriMovie);
-
-        sholeMovie = movieDAO.findById(sholeMovie.getId()).get();
-        sholeMovie.setStatus(notReleasedStatus);
-        sholeMovie.setLanguage(hindiLanguage);
-        movieDAO.save(sholeMovie);
 
 
         //=================================================================================
         //Mapping @ManyToMany
 
-        //Madari, dhoom move need add in IMAX and CityPride
-        dhoomMovie = movieDAO.findById(dhoomMovie.getId()).get();
-        madariMovie=movieDAO.findById(madariMovie.getId()).get();
-
-        imaxTheatre = theatreDAO.findById(imaxTheatre.getId()).get();
-        imaxTheatre.getMovies().add(dhoomMovie);
-        imaxTheatre.getMovies().add(madariMovie);
-        theatreDAO.save(imaxTheatre);
+        //Madari, dhoom move need add in IMAX and CityPride Trainers TODO
 
 
-        cityPride= theatreDAO.findById(cityPride.getId()).get();
-        cityPride.getMovies().add(dhoomMovie);
-        cityPride.getMovies().add(madariMovie);
-        theatreDAO.save(cityPride);
+        //URI ,Shole Movie Need to add in IMAX and CityPride Students TODOs
 
-        dhoomMovie.getTheatres().add(imaxTheatre);
-        dhoomMovie.getTheatres().add(cityPride);
-
-        madariMovie.getTheatres().add(cityPride);
-        madariMovie.getTheatres().add(imaxTheatre);
-        movieDAO.save(dhoomMovie);
-        movieDAO.save(madariMovie);
-
-        //URI ,Shole Movie Need to add in IMAX and CityPride
-
-        uriMovie = movieDAO.findById(uriMovie.getId()).get();
-        sholeMovie=movieDAO.findById(sholeMovie.getId()).get();
-
-        imaxTheatre.getMovies().add(uriMovie);
-        imaxTheatre.getMovies().add(sholeMovie);
-        theatreDAO.save(imaxTheatre);
-
-        cityPride.getMovies().add(uriMovie);
-        cityPride.getMovies().add(sholeMovie);
-        theatreDAO.save(cityPride);
-
-        uriMovie.getTheatres().add(imaxTheatre);
-        uriMovie.getTheatres().add(cityPride);
-
-        sholeMovie.getTheatres().add(cityPride);
-        sholeMovie.getTheatres().add(imaxTheatre);
-
-        movieDAO.save(uriMovie);
-        movieDAO.save(sholeMovie);
 
         //Mappings @ElementCollection @CollectionTable
         //Customer mobileNumber Mapping TODO
@@ -153,12 +91,7 @@ public class MainClass {
 
         //Anil Phonenumber Trainer TODO
 
-        List<String> anilCustomerPhoneNoList =  new ArrayList<String >();
-        anilCustomerPhoneNoList.add("1111111111");
-        anilCustomerPhoneNoList.add("2222222222");
 
-        anilCustomer.setPhoneNumbers(anilCustomerPhoneNoList);
-        customerDAO.save(anilCustomer);
 
 
         //rajesh PhoneNumber  TODO Student
