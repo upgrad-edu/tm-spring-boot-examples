@@ -2,10 +2,12 @@ package com.upgrad.mtb.beans;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.IndexColumn;
+
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -24,8 +26,13 @@ public class Theatre {
 
     @ManyToOne
     private City city;
-    @OneToMany(mappedBy = "theatre" , fetch = FetchType.LAZY)
+
+    @OrderColumn
+    @OneToMany(mappedBy = "theatre" , fetch = FetchType.EAGER)
     List<Booking> bookings;
+
+    @Fetch(value = FetchMode.SELECT)
+    @ManyToMany(mappedBy = "theatres" , fetch = FetchType.EAGER , cascade = CascadeType.ALL)
     private List<Movie> movies;
 
     public Theatre(){}
@@ -43,5 +50,16 @@ public class Theatre {
         this.city = city;
         this.bookings = bookings;
         this.movies = movies;
+    }
+
+    @Override
+    public String toString() {
+        return "Theatre{" +
+                "id=" + id +
+                ", theatreName='" + theatreName + '\'' +
+                ", noOfSeats=" + noOfSeats +
+                ", ticketPrice=" + ticketPrice +
+                ", city=" + city +
+                '}';
     }
 }

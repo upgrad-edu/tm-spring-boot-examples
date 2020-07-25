@@ -1,12 +1,10 @@
 package com.upgrad.mtb.beans;
-import com.upgrad.mtb.beans.Customer;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -18,7 +16,7 @@ public class UserType {
     int id;
     @Column(unique = true , nullable = false)
     String userType;
-    
+    @OneToMany(mappedBy = "userType" , fetch = FetchType.EAGER)
     List<Customer> customer;
 
     public UserType() {

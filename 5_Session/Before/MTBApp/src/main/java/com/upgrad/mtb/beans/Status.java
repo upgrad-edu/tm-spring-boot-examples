@@ -3,7 +3,6 @@ package com.upgrad.mtb.beans;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
@@ -18,6 +17,7 @@ public class Status {
     private int id;
     @Column(unique = true, nullable = false)
     private String status;
+    @OneToMany(mappedBy = "status" , fetch = FetchType.EAGER)
     List<Movie> movies;
 
     public Status(){ }

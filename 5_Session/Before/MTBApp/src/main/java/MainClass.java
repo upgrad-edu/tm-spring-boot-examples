@@ -65,10 +65,19 @@ public class MainClass {
 
         // @OneToMany Mapping
 
-        //  Movie+Language+Status
+        //  Movie+Language+Status      1  language --- > Many Movies
         //  Dhoom Madari movie TODO Trainer
+           englishLanguage = languageDAO.findById(englishLanguage.getId()).get();
+           releasedStatus = statusDAO.findById(releasedStatus.getId()).get();
 
+           dhoomMovie.setLanguage(englishLanguage);
+           dhoomMovie.setStatus(releasedStatus);
 
+           madariMovie.setLanguage(englishLanguage);
+           madariMovie.setStatus(releasedStatus);
+
+           movieDAO.save(madariMovie);
+           movieDAO.save(dhoomMovie);
 
         //uriMovie, sholeMovie movie TODO Student
         // 1)use hindiLanguage
@@ -81,17 +90,50 @@ public class MainClass {
 
         //Madari, dhoom move need add in IMAX and CityPride Trainers TODO
 
+        imaxTheatre = theatreDAO.findById(imaxTheatre.getId()).get();
+        cityPride = theatreDAO.findById(cityPride.getId()).get();
+
+
+        //madari IMAX and CityPride
+
+        dhoomMovie = movieDAO.findById(dhoomMovie.getId()).get();
+        madariMovie=movieDAO.findById(madariMovie.getId()).get();
+
+        imaxTheatre = theatreDAO.findById(imaxTheatre.getId()).get();
+
+        imaxTheatre.getMovies().add(dhoomMovie);
+        imaxTheatre.getMovies().add(madariMovie);
+        theatreDAO.save(imaxTheatre);
+
+
+        cityPride= theatreDAO.findById(cityPride.getId()).get();
+        cityPride.getMovies().add(dhoomMovie);
+        cityPride.getMovies().add(madariMovie);
+        theatreDAO.save(cityPride);
+
+        dhoomMovie.getTheatres().add(imaxTheatre);
+        dhoomMovie.getTheatres().add(cityPride);
+
+        madariMovie.getTheatres().add(cityPride);
+        madariMovie.getTheatres().add(imaxTheatre);
+        movieDAO.save(dhoomMovie);
+        movieDAO.save(madariMovie);
+
+
+
 
         //URI ,Shole Movie Need to add in IMAX and CityPride Students TODOs
-
 
         //Mappings @ElementCollection @CollectionTable
         //Customer mobileNumber Mapping TODO
 
-
         //Anil Phonenumber Trainer TODO
+        List<String> anilCustomerPhoneNoList =  new ArrayList<String >();
+        anilCustomerPhoneNoList.add("7473992003");
+        anilCustomerPhoneNoList.add("7473883933");
 
-
+        anilCustomer.setPhoneNumbers(anilCustomerPhoneNoList);
+        customerDAO.save(anilCustomer);
 
 
         //rajesh PhoneNumber  TODO Student

@@ -2,7 +2,6 @@ package com.upgrad.mtb.beans;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,8 +16,7 @@ public class City {
     private int id;
     @Column(unique = true, nullable = false)
     private String city;
-
-
+    @OneToMany(mappedBy = "city", fetch = FetchType.EAGER , cascade = CascadeType.ALL)
     List<Theatre> theatres;
 
     public City() {

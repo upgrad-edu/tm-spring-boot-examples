@@ -1,14 +1,22 @@
 package com.upgrad.mtb.beans;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
+@Data
+@Getter
+@Setter
 @Entity
 public class Car {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
 
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "engineid")
     private Engine engine;
 
     public Car() {}
@@ -51,8 +59,6 @@ public class Car {
     public String toString() {
         return "Car{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", engine=" + engine +
-                '}';
+                ", name='" + name + '\'' + '}';
     }
 }

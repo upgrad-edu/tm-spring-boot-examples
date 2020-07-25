@@ -3,16 +3,15 @@ package com.upgrad.mtb.beans;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
+
 @Getter
 @Setter
 @Data
 @Entity
-
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,10 +20,11 @@ public class Booking {
     private Date bookingDate;
     @Column( nullable = false)
     private int noOfSeats;
-
+    @ManyToOne
     private Theatre theatre;
-
+    @ManyToOne
     private Customer customer;
+
 
     public Booking(){}
 

@@ -2,12 +2,11 @@ package com.upgrad.mtb.beans;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -30,13 +29,14 @@ public class Movie {
     @Column( nullable = false)
     private String trailerURL;
 
-
+    @ManyToOne
     private Language language;
 
-
+    @ManyToOne
     private Status status;
 
-
+    @ManyToMany(cascade =CascadeType.ALL ,fetch = FetchType.EAGER)
+    @JoinTable(name = "MovieTheatresDetails")
     List<Theatre> theatres;
 
     public Movie(){}

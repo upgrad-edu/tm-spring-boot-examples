@@ -2,7 +2,9 @@ package com.upgrad.mtb.beans;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -30,6 +32,9 @@ public class Customer {
     @ElementCollection
     private List<String> phoneNumbers;
 
+
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @OneToMany(mappedBy = "customer" )
     List<Booking> bookings;
     @ManyToOne(fetch = FetchType.EAGER)
     UserType userType;
@@ -47,7 +52,7 @@ public class Customer {
         this.userType = userType;
     }
 
-    public Customer(String firstName, String lastName, String username,  String password, Date dateOfBirth, List<String> phoneNumbers, List<Booking> bookings, UserType userType) {
+    public Customer(String firstName, String lastName, String username, String password, Date dateOfBirth, List<String> phoneNumbers, List<Booking> bookings, UserType userType) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -58,7 +63,7 @@ public class Customer {
         this.userType = userType;
     }
 
-    public Customer(int id, String firstName, String lastName, String username,  String password, Date dateOfBirth, List<String> phoneNumbers, List<Booking> bookings, UserType userType) {
+    public Customer(int id, String firstName, String lastName, String username, String password, Date dateOfBirth, List<String> phoneNumbers, List<Booking> bookings, UserType userType) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
